@@ -7,9 +7,11 @@ class UrlMappings {
 			}
 		}
 
-                "/oldindex"(view:"/oldindex")
-                "/newindex"(view:"/newindex")
+		"/oldindex"(view:"/oldindex.gsp")
+		"/newindex"(view:"/newindex.gsp")
+        "/foo"(view:'/index')
 		"/"(view:"/index")
+
 		"500"(view:'/error')
 	}
 }
