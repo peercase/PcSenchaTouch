@@ -1,3 +1,5 @@
+/.idea/**
+/*.iml
 /*.tmproj
 /test/reports
 
