@@ -7,6 +7,8 @@ class UrlMappings {
 			}
 		}
 
+                "/oldindex"(view:"/oldindex")
+                "/newindex"(view:"/newindex")
 		"/"(view:"/index")
 		"500"(view:'/error')
 	}
