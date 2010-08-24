@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
+    <title>Kiva</title>
+    <link rel="stylesheet" href="css/kiva.css" type="text/css">
+    <script type="text/javascript" src="../../ext-touch.js"></script>
+    <script type="text/javascript" src="src/yql.js"></script>
+    <script type="text/javascript" src="src/index.js"></script>
+    <script type="text/javascript" src="src/views/LoanList.js"></script>
+    <script type="text/javascript" src="src/views/LoanInfo.js"></script>
+    <script type="text/javascript" src="src/views/FilterBar.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    
+</head>
+<body>
+    <textarea class="x-hidden-display" id="loan">
+        <tpl for="."><div class="loan">
+            <tpl if="image"><div class="loan_img" style="background-image: url(http://kiva.org/img/w80h80/{image.id}.jpg);"></div></tpl>
+            <h1>{name}</h1>
+            <h2>{use}</h2>
+            <div class="funded_info">
+                <div class="goal"> ${terms.loan_amount} </div>
+                <div class="funded">
+                    <div class="progress" style="width: {percentfunded}%"></div>
+                </div>
+                <div class="percent"> {percentfunded}% </div>
+            </div>
+        </div></tpl>
+    </textarea>
+    <textarea class="x-hidden-display" id="loaninfo-basic">
+        <h1>{name}</h1>
+        <h2>{location.town}, {location.country}</h2>
+        <p class="overview">
+            <strong>Activity:</strong> {activity}<br />
+            <strong>Sector:</strong> {sector}<br />
+            <strong>Amount requested:</strong> ${terms.loan_amount}<br />
+            <strong>Amount funded:</strong> ${funded_amount}<br />
+        </p>
+        <p><strong>Overview</strong><br />{description.texts.en}</p>
+    </textarea>
+    <textarea class="x-hidden-display" id="loaninfo-payment">
+        <h1>Repayment Schedule</h1>
+        <tpl for=".">
+            <div class="payment">
+                <div>{formatted_due_date:date("j M Y")} <span>${amount}</span></div>
+            </div>
+        </tpl>
+    </textarea>
+</body>
+</html>

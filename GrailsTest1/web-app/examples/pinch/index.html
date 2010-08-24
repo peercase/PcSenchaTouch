@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
+    <title>Tabs</title>
+
+	<link rel="stylesheet" href="../../resources/css/ext-touch.css" type="text/css">
+	
+	<script type="text/javascript" src="../../ext-touch.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+
+	<style>
+	    #picture {
+	        width: 400px;
+	        height: 400px;
+	        top: 60px;
+	        left: 60px;
+	        position: absolute;
+	        background-color: #ddd;
+	    }
+	</style>
+	<script>
+	    Ext.setup({
+	        onReady: function() {
+    	        Ext.fly('picture').on({
+    	            pinchstart : function(e, t) {
+    	                this.startScale = this.scale;
+    	            },
+	            
+    	            pinch : function(e, t) {
+    	                this.scale = e.scale * this.startScale;
+    	                t.style.webkitTransform = 'scale(' + this.scale + ')';
+    	            },
+	            
+    	            scope: {scale: 1}
+    	        });
+	        }
+	    });
+	</script>
+</head>
+<body><div id="picture"></div></body>
+</html>

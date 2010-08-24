@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
+    <title>GeoCongress</title>
+    <link rel="stylesheet" href="resources/css/geocongress.css" type="text/css">
+    <script type="text/javascript" src="../../ext-touch.js"></script>
+        
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="classes/YQL.js"></script>
+    <script type="text/javascript" src="classes/CongressService.js"></script>
+    <script type="text/javascript" src="classes/Util.js"></script>
+    <script type="text/javascript" src="data/Legislators.js"></script>
+    <script type="text/javascript" src="data/Bills.js"></script>
+    <script type="text/javascript" src="data/Cache.js"></script>
+    <script type="text/javascript" src="data/Committees.js"></script>
+    <script type="text/javascript" src="data/States.js"></script>
+    <script type="text/javascript" src="data/Votes.js"></script>
+    <script type="text/javascript" src="views/LegislatorList.js"></script>
+    <script type="text/javascript" src="views/DistrictInfo.js"></script>
+    <script type="text/javascript" src="views/StartScreen.js"></script>
+    <script type="text/javascript" src="views/BillSummary.js"></script>
+    <script type="text/javascript" src="views/LegislatorDetails.js"></script>
+    <script type="text/javascript" src="views/LegislatorBio.js"></script>
+    
+    <script type="text/javascript" src="views/App.js"></script>
+    <style>
+        .x-button a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .attribution {
+            text-align: center;
+        }
+    </style>
+    
+</head>
+<body>
+
+<textarea id="legislatorbrief" class="x-hidden-display">
+    <div class="legislator-brief">
+        <div class="legislator-tnail" style="background-image: url(http://www.govtrack.us/data/photos/{govtrack_id}-50px.jpeg)"></div>
+        <h3>{title} {firstname} {middlename} {lastname} ({party})</h3>
+        <p>{state} {district:this.ordinal}</p>
+    </div>
+</textarea>
+
+<textarea id="contact" class="x-hidden-display">
+    <div class="legislator-contact">
+        <div>Phone: {phone:this.notAvailable}</div>
+        <div>Email: {email:this.notAvailable}</div>
+        <div>Website: {website:this.siteNotAvailable}</div>
+    <div>
+</textarea>
+
+<textarea id="committees" class="x-hidden-display">
+    <tpl for="."><div class="committees">{name}</div></tpl>
+</textarea>
+
+<textarea id="votes" class="x-hidden-display">
+    <tpl for=".">
+        <div class="legislator-votes">
+        <strong>{title}</strong> {description} <span class="results">{result}</span>
+        </div>
+    </tpl>
+</textarea>
+
+<textarea id="bills" class="x-hidden-display">
+    <tpl for=".">
+        <div class="legislator-bills">
+        {title}
+        </div>
+    </tpl>
+</textarea>
+
+<textarea id="billsummary" class="x-hidden-display">
+    <div class="billsummary">
+    <tpl for="Paragraph">
+        <p>{.}</p>
+    </tpl>
+    </div>
+</textarea>
+
+<textarea id="district-info" class="x-hidden-display">
+    <div class="district-info">
+        <div>District: {number}</div>
+        <div>State: {state}</div>
+    </div>
+</textarea>
+
+<!--- Tpls for new style app.. -->
+<textarea id="legislator-list" class="x-hidden-display">
+    <tpl for=".">        
+        <div class="legislator-list-item">
+            <div class="legislator-tnail" style="background-image: url(http://www.govtrack.us/data/photos/{govtrack_id}-50px.jpeg)"></div>
+            {title} {lastname}, {firstname} {middlename}
+        </div>
+    </tpl>
+</textarea>
+
+
+
+
+
+
+
+</body>
+</html>

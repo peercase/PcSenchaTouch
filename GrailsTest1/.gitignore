@@ -1,0 +1,11 @@
+/web-app/WEB-INF
+/*.tmproj
+/test/reports
+
+/target/**
+/out/**
+*.war
+
+stacktrace.log
+.DS_Store
+
